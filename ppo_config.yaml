@@ -1,0 +1,32 @@
+# PPO Hyperparameters Configuration
+# Environment and Training Setup
+gym_id: CartPole-v1
+seed: 1
+total_timesteps: 100000
+torch_deterministic: true
+num_envs: 4
+
+# PPO Algorithm Parameters
+n_steps: 128          # Steps per rollout buffer per env ?batch size?
+epochs: 8             # Optimization epochs per update
+num_minibatches: 4    # Number of minibatches per update
+gamma: 0.99           # Discount factor
+clip_coef: 0.2        # PPO surrogate clipping coefficient
+ent_coef: 0.05        # Entropy bonus coefficient
+value_fn_coef: 0.5    # Value function loss coefficient
+max_grad_norm: 0.5    # Max gradient norm for clipping
+gae_lambda: 0.95      # Lambda parameter for GAE
+
+
+
+# Optimizer 
+learning_rate: 2.5e-4
+# Adam epsilon is kept in the code (1e-5) for now 
+
+
+# minbatch vs global batch 
+# how often do we update the policy  vs for how long are we using policy without update 
+# how many points are we collecting with each policy, vs how many points are we using to update the polic
+# num envs & n step - how big is the batch size
+
+#- recommened is 2000 batch size
